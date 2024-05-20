@@ -19,6 +19,7 @@ def GetJson():
                     hasNext = False
             for monster in payload['results']:
                 results.append(monster)
+            print(f"Got a page")
         except requests.exceptions.RequestException as e:
             print(f"Error getting monster info {e.strerror}")
     return results
@@ -26,7 +27,7 @@ def GetJson():
 def WriteJson(results:json):
     with open('monster.data.txt', 'w+') as file:
         for monster in results:
-            file.write(json.dumps(monster))
+            file.write(json.dumps(monster, separators=(',', ':')))
             file.write('\n')
             file.flush()
     print("All Done!")
