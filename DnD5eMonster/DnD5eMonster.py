@@ -20,7 +20,7 @@ def GetJson():
             for monster in payload['results']:
                 results.append(monster)
         except requests.exceptions.RequestException as e:
-            print(f"Error getting mosnter info {e.strerror}")
+            print(f"Error getting monster info {e.strerror}")
     return results
 
 def WriteJson(results:json):
