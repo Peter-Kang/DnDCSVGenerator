@@ -24,9 +24,12 @@ def GetJson():
     return results
 
 def WriteJson(results:json):
-    for monster in results:
-        pass
-    pass
+    with open('monster.data.txt', 'w+') as file:
+        for monster in results:
+            file.write(json.dumps(monster))
+            file.write('\n')
+            file.flush()
+    print("All Done!")
 
 def main():
     results = GetJson()
